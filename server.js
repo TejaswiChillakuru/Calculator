@@ -18,7 +18,7 @@ function htmlEntities(str) {
 var colors = ['red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange'];
 colors.sort(function (a, b) { return Math.random() > 0.5; });
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8080;
 const INDEX = '/index.html';
 
 const server = express()
@@ -65,7 +65,7 @@ wsServer.on('request', function (request) {
           color: userColor
         };
         history.push(obj);
-        // Keep only last 10 messages
+        // Maintains only last 10 calculations
         history = history.slice(-10);
         // broadcast message to all connected clients
         var json = JSON.stringify({ type: 'message', data: obj });
